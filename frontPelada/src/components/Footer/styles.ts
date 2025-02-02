@@ -6,12 +6,12 @@ export const FooterContainer = styled.footer`
     justify-content: center;
     align-items: center;
     color: white;
+    background: #1a1a1a;
     
     .centralizer{
         width: 100%;
         height: 10rem;
         max-width: var(--max-width);
-        background: #1a1a1a;
         padding: 0 2rem;
         
         display: flex;

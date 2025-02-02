@@ -1,14 +1,24 @@
 import { styled } from "styled-components";
 
 export const HeaderContainer = styled.header`
-    max-width: 1500px;
+    width: 100%;
     height: 5rem;
-    padding: 0 2rem;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #f1f1f1;
+    
+    .centralizer{
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
 
     nav{
         display: flex;
