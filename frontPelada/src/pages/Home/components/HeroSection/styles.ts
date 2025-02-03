@@ -1,10 +1,5 @@
 import { styled } from 'styled-components';
 
-interface ButtonProps {
-    background?: string
-    color?: string
-}
-
 export const HeroSectionContainer = styled.section`
   display: flex;
   justify-content: center;
@@ -70,15 +65,4 @@ export const HeroSectionImg = styled.div`
   @media(max-width: 1000px){
     width: 100%;
   }
-`;
-
-export const Button = styled.button<ButtonProps>`
-
-  background-color: ${props=> props.background || `transparent`};
-  color: ${props=>props.color || `white`};
-  border: 1px solid black;
-  border-radius: 1px;
-  padding: 12px 20px;
-  font-size: 0.8rem;
-  cursor: pointer;
 `;

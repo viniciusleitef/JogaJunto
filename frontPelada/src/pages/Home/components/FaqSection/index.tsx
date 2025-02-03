@@ -1,4 +1,4 @@
-import { Button } from '../HeroSection/styles';
+import { Button } from '../../../../components/Button';
 import { FaqCard, FaqContainer } from './styles';
 
 export function FacSection() {
@@ -62,9 +62,11 @@ export function FacSection() {
         </div>
 
         <footer>
-            <h1>Ainda tem dúvidas?</h1>
-            <p>Entre em contato com nossa equipe de suporte para obter assistência.</p>
-            <Button color='black'>Entre em contato</Button>
+          <h1>Ainda tem dúvidas?</h1>
+          <p>
+            Entre em contato com nossa equipe de suporte para obter assistência.
+          </p>
+          <Button color="black">Entre em contato</Button>
         </footer>
       </div>
     </FaqContainer>

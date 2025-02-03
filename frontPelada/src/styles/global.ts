@@ -4,6 +4,8 @@ export const GlobalStyle = createGlobalStyle`
 
     :root {
         --max-width: 1500px;
+        --header-height: 80px; 
+        --footer-height: 160px;
     }
     
     *{

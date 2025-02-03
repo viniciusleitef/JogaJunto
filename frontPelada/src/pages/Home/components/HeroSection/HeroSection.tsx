@@ -1,8 +1,8 @@
+import { Button } from '../../../../components/Button';
 import {
   HeroSectionContainer,
   HeroSectionText,
-  HeroSectionImg,
-  Button,
+  HeroSectionImg
 } from './styles';
 
 export function HeroSection() {
@@ -18,7 +18,7 @@ export function HeroSection() {
           </p>
 
           <div className="buttonsBox">
-            <Button background="black">Registrar-se</Button>
+            <Button backgroundColor="black">Registrar-se</Button>
             <Button color="black">Entrar</Button>
           </div>
         </HeroSectionText>
