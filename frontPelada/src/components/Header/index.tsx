@@ -1,7 +1,8 @@
 import { HeaderContainer } from './styles';
 import { IoMenu } from 'react-icons/io5';
-
+import { useNavigate } from 'react-router';
 export function Header() {
+  const navigate = useNavigate();
   return (
     <HeaderContainer>
       <div className="centralizer">
@@ -17,7 +18,7 @@ export function Header() {
           <p>More Options</p>
         </nav>
 
-        <div className="join">Join</div>
+        <div className="join" onClick={ () => {navigate('/hub')}}>Join</div>
 
         <div className="responsiveMenu">
           <IoMenu size={36} />

@@ -1,15 +1,15 @@
 import { ReactNode } from 'react';
 import { ButttonContainer } from './styles';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   backgroundColor?: string;
   color?: string;
 }
 
-export function Button({ children, backgroundColor, color }: ButtonProps) {
+export function Button({ children, backgroundColor, color, ...rest }: ButtonProps) {
   return (
-    <ButttonContainer backgroundColor={backgroundColor} color={color}>
+    <ButttonContainer {...rest} backgroundColor={backgroundColor} color={color}>
       {children}
     </ButttonContainer>
   );

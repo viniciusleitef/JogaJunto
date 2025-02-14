@@ -2,8 +2,10 @@ import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { HeroSection } from './styles';
+import { useNavigate } from 'react-router';
 
 export function Hub() {
+  const navigate = useNavigate();
   return (
     <>
       <Header />
@@ -15,7 +17,7 @@ export function Hub() {
             conectado com suas partidas e estatísticas favoritas em um só lugar.
           </p>
           <div className="buttonsBox">
-            <Button color="white" backgroundColor='black'>Criar jogo</Button>
+            <Button color="white" backgroundColor='black' onClick={() => navigate('/createGame/name')}>Criar jogo</Button>
             <Button color='black'>Ver jogos</Button>
           </div>
         </div>
