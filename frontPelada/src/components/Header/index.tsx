@@ -18,7 +18,7 @@ export function Header() {
           <p>More Options</p>
         </nav>
 
-        <div className="join" onClick={ () => {navigate('/hub')}}>Join</div>
+        <div className="join" onClick={ () => {navigate('/login')}}>Join</div>
 
         <div className="responsiveMenu">
           <IoMenu size={36} />

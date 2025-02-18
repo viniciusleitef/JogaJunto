@@ -1,28 +1,39 @@
-import { LoginContainer, LoginPageButton, LoginPageInput } from "./styles";
-import video from '../../assets/loginVideo.mp4'
+import { LoginContainer, LoginPageButton, LoginPageInput } from './styles';
+import video from '../../assets/loginVideo.mp4';
+import { useNavigate } from 'react-router';
+import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 
-export function Login(){
-    return (
-        <LoginContainer>
-            <div className="imageBox">
-                <video autoPlay muted loop>
-                    <source src={video} type="video/mp4"/>
-                </video>
-            </div>
+export function Login() {
+  const navigate = useNavigate();
 
-            <div className="box">
-                <h1>JojaJunto</h1>
+  const responseMessage = (response: CredentialResponse): void => {
+    console.log(response);
+    navigate('/hub');
+  };
 
-                <form>
-                    <LoginPageInput type="text" placeholder="User name or Email" />
-                    <LoginPageInput type="text" placeholder="Password" />
+  return (
+    <LoginContainer>
+      <div className="imageBox">
+        <video autoPlay muted loop>
+          <source src={video} type="video/mp4" />
+        </video>
+      </div>
 
-                    <LoginPageButton>Registrar</LoginPageButton>
-                    <LoginPageButton>Entrar com Google</LoginPageButton>
+      <div className="box">
+        <h1>JojaJunto</h1>
 
-                    <p>Esqueceu sua senha ?</p>
-                </form>
-            </div>
-        </LoginContainer>
-    )
+        <form>
+          <LoginPageInput type="text" placeholder="User name or Email" />
+          <LoginPageInput type="text" placeholder="Password" />
+
+          <LoginPageButton onClick={() => navigate('/hub')}>
+            Entrar
+          </LoginPageButton>
+          <GoogleLogin onSuccess={responseMessage}/>
+
+          <p>Esqueceu sua senha ?</p>
+        </form>
+      </div>
+    </LoginContainer>
+  );
 }

@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const LoginContainer = styled.main`
     width: 100%;
-    min-height: 100vh;
-
+    height: 100vh;
+    overflow-y: hidden;
     display: flex;
-
     align-items: center;
 
     .imageBox{
         width: 50%;
-        height: 100vh;
+        height: 100%;
         background-color: black;
         border-right: 1px solid greenyellow;
 
