@@ -20,7 +20,7 @@ export function Login() {
       </div>
 
       <div className="box">
-        <h1>JojaJunto</h1>
+        <h1>JogaJunto</h1>
 
         <form>
           <LoginPageInput type="text" placeholder="User name or Email" />
