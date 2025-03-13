@@ -10,7 +10,7 @@ import { OurTeamSection } from './components/OurTeamSection';
 export function Home() {
   return (
     <>
-      <Header />
+      <Header joinBtn = {true}/>
       <HeroSection />
       <FeatureSection/>
       <JoinUsSection/>

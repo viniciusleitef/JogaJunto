@@ -1,8 +1,16 @@
 import { HeaderContainer } from './styles';
 import { IoMenu } from 'react-icons/io5';
 import { useNavigate } from 'react-router';
-export function Header() {
+import { useAuth } from '../../hooks/useAuth';
+
+interface HeaderProps {
+  joinBtn?: boolean;
+}
+
+export function Header({ joinBtn }: HeaderProps) {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+
   return (
     <HeaderContainer>
       <div className="centralizer">
@@ -18,7 +26,18 @@ export function Header() {
           <p>More Options</p>
         </nav>
 
-        <div className="join" onClick={ () => {navigate('/login')}}>Join</div>
+        {isAuthenticated && joinBtn == undefined ? (
+          <div>Profile</div>
+        ) : (
+          <div
+            className="join"
+            onClick={() => {
+              navigate('/login');
+            }}
+          >
+            Join
+          </div>
+        )}
 
         <div className="responsiveMenu">
           <IoMenu size={36} />

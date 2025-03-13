@@ -2,14 +2,33 @@ import { LoginContainer, LoginPageButton, LoginPageInput } from './styles';
 import video from '../../assets/loginVideo.mp4';
 import { useNavigate } from 'react-router';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
+import { useUser } from '../../hooks/useUser';
+import { useEffect } from 'react';
+import { useAuth } from '../../hooks/useAuth';
 
 export function Login() {
   const navigate = useNavigate();
+  const { loginGoogle } = useUser();
+  const { isAuthenticated, loading } = useAuth();
 
-  const responseMessage = (response: CredentialResponse): void => {
-    console.log(response);
-    navigate('/hub');
+  const responseMessage = async (
+    response: CredentialResponse,
+  ): Promise<void> => {
+    if (response.credential) {
+      const token = await loginGoogle({ credential: response.credential });
+      console.log(token);
+      if (token) {
+        localStorage.setItem('token', token);
+        navigate('/hub');
+      }
+    }
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/hub');
+    }
+  }, [loading]);
 
   return (
     <LoginContainer>
@@ -29,7 +48,7 @@ export function Login() {
           <LoginPageButton onClick={() => navigate('/hub')}>
             Entrar
           </LoginPageButton>
-          <GoogleLogin onSuccess={responseMessage}/>
+          <GoogleLogin onSuccess={responseMessage} />
 
           <p>Esqueceu sua senha ?</p>
         </form>

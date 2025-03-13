@@ -3,14 +3,29 @@ import { Home } from './pages/Home/index.tsx';
 import { Hub } from './pages/Hub/index.tsx';
 import { CreateGame } from './pages/CreateGame/index.tsx';
 import { Login } from './pages/Login/index.tsx';
+import ProtectedRoute from './ProtectedRoute.tsx';
 
 export function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/hub" element={<Hub />}/>
-      <Route path='/createGame/*' element={<CreateGame/>}/>
       <Route path="/login" element={<Login />} />
+      <Route
+        path="/hub"
+        element={
+          <ProtectedRoute>
+            <Hub />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/createGame/*"
+        element={
+          <ProtectedRoute>
+            <CreateGame />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
